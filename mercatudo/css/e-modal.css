@@ -1,0 +1,33 @@
+ /* Estilo modal LOGIN e CADASTRO*/
+
+
+.janela, h4, .fechar {
+    background-color: rgb(0,97,175);
+    color: #FFFFFF !important;
+    text-align: center;
+    font-size: 15px;
+}
+
+.janela, .corpo-janela {
+    padding: 40px 50px;
+}
+
+.icone{
+  margin-right:5px;
+ /* Estilo modal LOGIN e CADASTRO*/
+
+
+.janela, h4, .fechar {
+    background-color: rgb(0,97,175);
+    color: #FFFFFF !important;
+    text-align: center;
+    font-size: 15px;
+}
+
+.janela, .corpo-janela {
+    padding: 40px 50px;
+}
+
+.icone{
+  margin-right:5px;
+}
