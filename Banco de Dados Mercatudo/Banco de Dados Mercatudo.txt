@@ -1,0 +1,58 @@
+CREATE TABLE tipos_usuarios(
+	id_tipo_usuario int(6) NOT NULL AUTO_INCREMENT,
+    descricao varchar(120) NOT NULL,
+    PRIMARY KEY (id_tipo_usuario)
+);
+
+CREATE TABLE usuarios(
+	id_usuario int(6) NOT NULL AUTO_INCREMENT,
+    nome varchar(30) NOT NULL,
+    sobrenome varchar(50) NOT NULL,
+    email varchar(150) NOT NULL,
+    cpf numeric(11) NOT NULL UNIQUE,
+    telefone numeric(12),
+    senha varchar(60) NOT NULL,
+    rua varchar(150) NOT NULL,
+    numero varchar(8),
+    bairro varchar(150) NOT NULL,
+    cidade varchar(100) NOT NULL,
+    uf varchar(30) NOT NULL,
+    cep numeric(8) ZEROFILL NOT NULL,
+    complemento varchar(150),
+    tipo_usuario int(6) NOT NULL,
+    PRIMARY KEY (id_usuario),
+    FOREIGN KEY (tipo_usuario) REFERENCES tipos_usuarios(id_tipo_usuario)
+);
+
+CREATE TABLE tipos_produtos(
+	id_tipo_produto int(6) NOT NULL AUTO_INCREMENT,
+    descricao varchar(120) NOT NULL,
+    PRIMARY KEY (id_tipo_produto)
+);
+
+
+
+CREATE TABLE produtos(
+	id_produto int(6) NOT NULL AUTO_INCREMENT,
+    nome varchar(30) NOT NULL,
+    descricao varchar(120) NOT NULL,
+    imagem_1 varchar(300),
+    imagem_2 varchar(300),
+    imagem_3 varchar(300),
+    imagem_4 varchar(300),
+    preco decimal(20,2),
+    qualidade varchar(30),
+    garantia varchar(30),
+    tipo_produto int(6) NOT NULL,
+     
+    PRIMARY KEY (id_produto),
+    FOREIGN KEY (tipo_produto) REFERENCES tipos_produtos(id_tipo_produto)
+);
+
+CREATE TABLE carrinho(
+	id_usuario int(6) NOT NULL,
+    id_produto int(6) NOT NULL,
+    PRIMARY KEY (id_usuario,id_produto),
+    FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
+    FOREIGN KEY (id_produto) REFERENCES produtos(id_produto)
+);
